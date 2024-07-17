@@ -15,6 +15,7 @@ export const environment = createEnv({
   emptyStringAsUndefined: false,
   runtimeEnv: {
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
+    TMDB_API_KEY: process.env.TMDB_API_KEY,
   },
   server: {
     TMDB_API_KEY: z.string().min(1),
