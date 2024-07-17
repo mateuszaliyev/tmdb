@@ -1,5 +1,16 @@
 {
+  "menu": "Menu",
   "meta": {
-    "title": "TMDB"
+    "title": "tmdb"
+  },
+  "sections": {
+    "best-movies": {
+      "slug": "best-movies",
+      "title": "Best movies"
+    },
+    "best-series": {
+      "slug": "best-series",
+      "title": "Best series"
+    }
   }
 }

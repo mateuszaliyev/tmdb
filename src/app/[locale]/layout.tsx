@@ -1,15 +1,15 @@
 import type { ReactNode } from "react";
 
-import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 
+import { Navigation } from "@/components/navigation";
+
 import type { Locale } from "@/locales";
+import { getDictionary } from "@/locales/dictionary";
 
 import { cx } from "@/utilities/classname";
 
 import "./style.css";
-
-import { getDictionary } from "@/locales/dictionary";
 
 type RootLayoutProps = {
   children: ReactNode;
@@ -34,8 +34,17 @@ const figtree = Figtree({
 });
 
 const RootLayout = ({ children, params: { locale } }: RootLayoutProps) => (
-  <html className={cx("scroll-smooth", figtree.variable)} lang={locale}>
-    <body className="antialiased">{children}</body>
+  <html
+    className={cx(
+      "scroll-smooth bg-neutral-950 text-white [color-scheme:dark]",
+      figtree.variable,
+    )}
+    lang={locale}
+  >
+    <body className="antialiased">
+      <Navigation locale={locale} />
+      {children}
+    </body>
   </html>
 );
 

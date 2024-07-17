@@ -1,5 +1,16 @@
 {
+  "menu": "Menu",
   "meta": {
-    "title": "TMDB Polska"
+    "title": "tmdb"
+  },
+  "sections": {
+    "best-movies": {
+      "slug": "najlepsze-filmy",
+      "title": "Najlepsze filmy"
+    },
+    "best-series": {
+      "slug": "najlepsze-seriale",
+      "title": "Najlepsze seriale"
+    }
   }
 }

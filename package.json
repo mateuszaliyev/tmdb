@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "0.5.4",
+    "@radix-ui/react-dropdown-menu": "2.1.1",
     "@t3-oss/env-nextjs": "0.10.1",
     "cva": "1.0.0-beta.1",
     "negotiator": "0.6.3",
@@ -17,6 +18,7 @@
     "react-dom": "19.0.0-rc-f994737d14-20240522",
     "server-only": "0.0.1",
     "tailwind-merge": "2.4.0",
+    "tailwindcss-animate": "1.0.7",
     "zod": "3.23.8"
   },
   "devDependencies": {
