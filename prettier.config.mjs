@@ -16,6 +16,7 @@ const prettierConfig = {
     "^(@/constants)(.*|$)",
     "^(@/environment)(.*|$)",
     "^(@/hooks)(.*|$)",
+    "^(@/locales)(.*|$)",
     "^(@/types)(.*|$)",
     "^(@/utilities)(.*|$)",
     "^[.]",
