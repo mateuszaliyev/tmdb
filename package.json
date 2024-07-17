@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "@t3-oss/env-nextjs": "0.10.1",
+    "cva": "1.0.0-beta.1",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
     "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "tailwind-merge": "2.4.0",
     "zod": "3.23.8"
   },
   "devDependencies": {
