@@ -75,7 +75,7 @@ const RootLayout = ({ children, params: { locale } }: RootLayoutProps) => (
     <body className="antialiased">
       <Navigation locale={locale} />
       {children}
-      <Footer />
+      <Footer locale={locale} />
     </body>
   </html>
 );
