@@ -16,7 +16,10 @@ export const DebouncedSearchInput = (props: DebouncedSearchInputProps) => {
   const debounceFormSubmission = useDebouncedCallback<
     ChangeEventHandler<ElementRef<typeof Input>>
   >((event) => {
-    if (!event.target.value) return;
+    const value = event.target.value;
+
+    if (!value || value.length < 3) return;
+
     event.target.form?.requestSubmit();
   }, 300);
 
