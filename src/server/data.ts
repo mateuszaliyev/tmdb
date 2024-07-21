@@ -63,6 +63,8 @@ export const search = cache(
     });
 
     if (!response.ok) {
+      console.error(url);
+
       throw new Error(
         `Upstream server responded with ${response.status} ${response.statusText}.`,
       );
