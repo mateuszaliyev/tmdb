@@ -12,7 +12,7 @@ export const environment = createEnv({
           : `http://localhost:${process.env.PORT ?? 3000}`,
       ),
   },
-  emptyStringAsUndefined: false,
+  emptyStringAsUndefined: true,
   runtimeEnv: {
     NEXT_PUBLIC_BASE_URL: process.env.NEXT_PUBLIC_BASE_URL,
     TMDB_API_KEY: process.env.TMDB_API_KEY,
