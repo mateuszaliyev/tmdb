@@ -24,13 +24,11 @@ export type MediaCardProps = Omit<
 > & {
   locale?: Locale;
   media: Media;
-  withMediaType?: boolean;
 };
 
 export const MediaCard = async ({
   locale = DEFAULT_LOCALE,
   media,
-  withMediaType = false,
   ...props
 }: MediaCardProps) => {
   const dictionary = await getDictionary(locale);
@@ -60,11 +58,9 @@ export const MediaCard = async ({
           {title}
         </CardTitle>
         <div className="mt-auto flex items-center justify-between">
-          {withMediaType && (
-            <Badge className="self-start">
-              {dictionary.media[media.media_type]}
-            </Badge>
-          )}
+          <Badge className="self-start">
+            {dictionary.media[media.media_type]}
+          </Badge>
           {media.vote_average !== 0 && (
             <Rating locale={locale} rating={media.vote_average} />
           )}
@@ -84,9 +80,11 @@ export const MediaCard = async ({
 export const MediaCardSkeleton = () => (
   <div className="flex w-56 shrink-0 flex-col gap-4 rounded-lg p-3">
     <Skeleton className="aspect-[2/3] w-full rounded" />
-    <Skeleton className="h-5 w-2/3 rounded" />
-    <div className="flex items-center justify-between">
-      <Skeleton className="h-4 w-10 rounded" />
+    <div className="py-0.5">
+      <Skeleton className="h-5 w-2/3 rounded" />
+    </div>
+    <div className="flex items-center justify-between py-0.5">
+      <Skeleton className="h-5 w-10 rounded" />
       <Skeleton className="h-4 w-10 rounded" />
       <Skeleton className="h-4 w-20 rounded" />
     </div>

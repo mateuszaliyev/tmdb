@@ -5,15 +5,10 @@ import { redirect } from "next/navigation";
 
 import background from "@/assets/images/header.png";
 
-import { MediaCardSkeleton } from "@/components/card/media";
-import {
-  CarouselNext,
-  CarouselPrevious,
-  CarouselProvider,
-} from "@/components/carousel";
 import { Container } from "@/components/container";
 import { DebouncedSearchInput } from "@/components/input/debounced";
-import { Deck, Heading } from "@/components/typography";
+import { MediaCarouselSkeleton } from "@/components/media/carousel";
+import { MediaCarouselSection } from "@/components/media/carousel/section";
 
 import { SearchIcon } from "@/icons/search";
 
@@ -58,10 +53,10 @@ export const Header = async ({ locale, query }: HeaderProps) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-gray-950" />
       </div>
-      <Container className="relative py-20">
+      <Container className="relative pt-20">
         <form
           action={updateSearchParametersWithLocale}
-          className="flex justify-center py-32"
+          className="my-32 flex justify-center"
         >
           <div className="relative w-1/3 min-w-60">
             <DebouncedSearchInput
@@ -75,36 +70,15 @@ export const Header = async ({ locale, query }: HeaderProps) => {
           </div>
         </form>
         {typeof query !== "undefined" && (
-          <section>
-            <CarouselProvider>
-              <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <Heading>{dictionary.header.search.results.heading}</Heading>
-                  <Deck>
-                    {dictionary.header.search.results.deck}: &quot;{query}
-                    &quot;.
-                  </Deck>
-                </div>
-                <div className="flex items-center gap-1">
-                  <CarouselPrevious>
-                    {dictionary.slide.previous}
-                  </CarouselPrevious>
-                  <CarouselNext>{dictionary.slide.next}</CarouselNext>
-                </div>
-              </div>
-              <Suspense
-                fallback={
-                  <div className="flex gap-4 overflow-hidden">
-                    {Array.from({ length: 6 }, (_, index) => (
-                      <MediaCardSkeleton key={index} />
-                    ))}
-                  </div>
-                }
-              >
-                <SearchResults locale={locale} query={query} />
-              </Suspense>
-            </CarouselProvider>
-          </section>
+          <MediaCarouselSection
+            deck={`${dictionary.header.search.results.deck}: "${query}"`}
+            heading={dictionary.header.search.results.heading}
+            locale={locale}
+          >
+            <Suspense fallback={<MediaCarouselSkeleton />}>
+              <SearchResults locale={locale} query={query} />
+            </Suspense>
+          </MediaCarouselSection>
         )}
       </Container>
     </header>

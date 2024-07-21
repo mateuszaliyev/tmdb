@@ -1,9 +1,8 @@
-import { search } from "@/server/data";
-
-import { MediaCard } from "@/components/card/media";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/carousel";
+import { MediaCarousel } from "@/components/media/carousel";
 
 import type { Locale } from "@/locales";
+
+import { search } from "@/server/data";
 
 export type SearchResultsProps = {
   locale: Locale;
@@ -12,16 +11,5 @@ export type SearchResultsProps = {
 
 export const SearchResults = async ({ locale, query }: SearchResultsProps) => {
   const results = await search(query, locale);
-
-  return (
-    <Carousel>
-      <CarouselContent className="-ml-4">
-        {results.map((media) => (
-          <CarouselItem className="basis-60 pl-4" key={media.id}>
-            <MediaCard locale={locale} media={media} withMediaType />
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-    </Carousel>
-  );
+  return <MediaCarousel locale={locale} media={results} />;
 };

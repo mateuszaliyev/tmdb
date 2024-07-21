@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { TopRatedMediaSection } from "@/components/media/top-rated/section";
 
 import type { Locale } from "@/locales";
 
@@ -14,6 +15,8 @@ type HomeProps = {
 const Home = ({ params: { locale }, searchParams: { query } }: HomeProps) => (
   <>
     <Header locale={locale} query={query} />
+    <TopRatedMediaSection locale={locale} mediaType="movie" />
+    <TopRatedMediaSection locale={locale} mediaType="tv" />
   </>
 );
 

@@ -14,7 +14,7 @@ export type HeadingProps = ComponentPropsWithRef<"h2"> &
   };
 
 export const deck = cva({
-  base: "mt-1 text-balance text-gray-400",
+  base: "mt-1 text-gray-400",
 });
 
 export const heading = cva({
@@ -24,7 +24,7 @@ export const heading = cva({
   },
   variants: {
     level: {
-      2: "mr-4 inline-flex items-center gap-2 text-3xl text-gray-300",
+      2: "mr-4 inline-flex items-center gap-2 text-2xl text-gray-300 sm:text-3xl",
     },
   },
 });

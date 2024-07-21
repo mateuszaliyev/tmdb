@@ -31,14 +31,14 @@ const navigationLink = cva({
 export const Navigation = async ({ locale }: NavigationProps) => {
   const dictionary = await getDictionary(locale);
 
-  const links = Object.values(dictionary.sections);
+  const topRatedMedia = Object.values(dictionary.media["top-rated"]);
 
   return (
     <nav className="fixed z-navigation w-full bg-black bg-opacity-80 backdrop-blur-sm backdrop-saturate-150">
       <Container className="flex items-center gap-10 py-5">
         <Logo className="h-8 shrink-0" />
         <ul className="hidden gap-5 sm:flex">
-          {links.map(({ slug, title }) => (
+          {topRatedMedia.map(({ slug, title }) => (
             <li key={slug}>
               <Link className={navigationLink()} href={`#${slug}`}>
                 {title}
@@ -77,7 +77,7 @@ export const Navigation = async ({ locale }: NavigationProps) => {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
-              {links.map(({ slug, title }) => (
+              {topRatedMedia.map(({ slug, title }) => (
                 <DropdownMenuItem asChild key={slug}>
                   <Link className={navigationLink()} href={`#${slug}`}>
                     {title}

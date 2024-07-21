@@ -12,21 +12,23 @@
   },
   "media": {
     "movie": "Film",
+    "top-rated": {
+      "movie": {
+        "deck": "Lista filmów w kolejności od najwyżej ocenianych",
+        "slug": "najlepsze-filmy",
+        "title": "Najlepsze filmy"
+      },
+      "tv": {
+        "deck": "Lista seriali w kolejności od najwyżej ocenianych",
+        "slug": "najlepsze-seriale",
+        "title": "Najlepsze seriale"
+      }
+    },
     "tv": "Serial"
   },
   "menu": "Menu",
   "meta": {
     "title": "tmdb"
-  },
-  "sections": {
-    "best-movies": {
-      "slug": "najlepsze-filmy",
-      "title": "Najlepsze filmy"
-    },
-    "best-series": {
-      "slug": "najlepsze-seriale",
-      "title": "Najlepsze seriale"
-    }
   },
   "slide": {
     "next": "Następny slajd",
