@@ -41,11 +41,17 @@ export const Card = ({
 };
 
 export const CardImage = ({
+  alt,
   className,
   fill = true,
   ...props
 }: CardImageProps) => (
-  <Image className={cx("object-cover", className)} fill={fill} {...props} />
+  <Image
+    alt={alt}
+    className={cx("object-cover", className)}
+    fill={fill}
+    {...props}
+  />
 );
 
 export const CardImageContainer = (props: CardImageContainerProps) => (

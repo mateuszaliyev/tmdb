@@ -101,7 +101,7 @@ export const Carousel = ({
 
       onKeyDownCapture?.(event);
     },
-    [scrollToNext, scrollToPrevious],
+    [onKeyDownCapture, scrollToNext, scrollToPrevious],
   );
 
   return (
