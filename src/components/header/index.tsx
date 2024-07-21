@@ -27,7 +27,7 @@ const updateSearchParameters = async (locale: Locale, formData: FormData) => {
 
   const query = formData.get("query");
 
-  if (!query || typeof query !== "string") return;
+  if (!query || typeof query !== "string" || query.length < 3) return;
 
   redirect(`/${locale}?query=${query}`);
 };
