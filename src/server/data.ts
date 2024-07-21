@@ -18,12 +18,12 @@ export const getTopRatedMedia = cache(
   async (mediaType: DigitalMediaType, locale: Locale) => {
     const url = new URL(getTmdbApiUrl(`/${mediaType}/top_rated`));
 
+    url.searchParams.append("api_key", environment.TMDB_API_KEY);
     url.searchParams.append("language", locale);
 
     const response = await fetch(url, {
       headers: {
         Accept: "application/json",
-        Authorization: `Bearer ${environment.TMDB_API_KEY}`,
       },
     });
 
@@ -52,13 +52,13 @@ export const search = cache(
   async (query: string, locale: Locale) => {
     const url = new URL(getTmdbApiUrl("/search/multi"));
 
+    url.searchParams.append("api_key", environment.TMDB_API_KEY);
     url.searchParams.append("language", locale);
     url.searchParams.append("query", query);
 
     const response = await fetch(url, {
       headers: {
         Accept: "application/json",
-        Authorization: `Bearer ${environment.TMDB_API_KEY}`,
       },
     });
 
