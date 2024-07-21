@@ -1,10 +1,9 @@
 import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 
-import { DEFAULT_LOCALE, LOCALES } from "@/locales";
+import { DEFAULT_LOCALE, LOCALES, type Locale } from "@/locales";
 
-export const matchLocale = (request: Request) => {
-  const headers = Object.fromEntries(request.headers);
+export const matchLocale = (headers: Record<string, string>) => {
   const languages = new Negotiator({ headers }).languages();
-  return match(languages, LOCALES, DEFAULT_LOCALE);
+  return match(languages, LOCALES, DEFAULT_LOCALE) as Locale;
 };

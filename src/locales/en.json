@@ -1,4 +1,19 @@
 {
+  "header": {
+    "input": {
+      "placeholder": "Search tmdb"
+    },
+    "search": {
+      "results": {
+        "deck": "Movies and series matching the phrase",
+        "heading": "Search results"
+      }
+    }
+  },
+  "media": {
+    "movie": "Movie",
+    "tv": "TV"
+  },
   "menu": "Menu",
   "meta": {
     "title": "tmdb"
@@ -12,5 +27,9 @@
       "slug": "best-series",
       "title": "Best series"
     }
+  },
+  "slide": {
+    "next": "Next slide",
+    "previous": "Previous slide"
   }
 }

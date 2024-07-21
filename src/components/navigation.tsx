@@ -1,3 +1,5 @@
+import { Button } from "@/components/button";
+import { Container } from "@/components/container";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,17 +15,17 @@ import { ChevronIcon } from "@/icons/chevron";
 import { MenuIcon } from "@/icons/menu";
 import { XIcon } from "@/icons/x";
 
-import { Locale, LOCALE_NAMES, LOCALES } from "@/locales";
+import { LOCALE_NAMES, LOCALES, type Locale } from "@/locales";
 import { getDictionary } from "@/locales/dictionary";
 
-import { container, cva } from "@/utilities/classname";
+import { cva } from "@/utilities/classname";
 
 export type NavigationProps = {
   locale: Locale;
 };
 
 const navigationLink = cva({
-  base: "flex items-center text-neutral-400 outline-none transition hover:text-white focus-visible:text-white",
+  base: "flex items-center text-gray-300 outline-none transition hover:text-white focus-visible:text-white",
 });
 
 export const Navigation = async ({ locale }: NavigationProps) => {
@@ -32,12 +34,8 @@ export const Navigation = async ({ locale }: NavigationProps) => {
   const links = Object.values(dictionary.sections);
 
   return (
-    <nav className="bg-black">
-      <div
-        className={container({
-          className: "flex items-center gap-10 py-5",
-        })}
-      >
+    <nav className="fixed z-navigation w-full bg-black bg-opacity-80 backdrop-blur-sm backdrop-saturate-150">
+      <Container className="flex items-center gap-10 py-5">
         <Logo className="h-8 shrink-0" />
         <ul className="hidden gap-5 sm:flex">
           {links.map(({ slug, title }) => (
@@ -68,14 +66,14 @@ export const Navigation = async ({ locale }: NavigationProps) => {
           </DropdownMenuContent>
         </DropdownMenu>
         <DropdownMenu>
-          <DropdownMenuTrigger
-            className={navigationLink({ className: "group sm:hidden" })}
-          >
-            <div className="relative h-6 w-6">
-              <MenuIcon className="absolute inset-0 transition-opacity group-data-[state=open]:opacity-0" />
-              <XIcon className="absolute inset-0 opacity-0 transition-opacity group-data-[state=open]:opacity-100" />
-            </div>
-            <span className="sr-only">{dictionary.menu}</span>
+          <DropdownMenuTrigger asChild>
+            <Button className="group -my-2 sm:hidden" icon variant="ghost">
+              <div className="relative h-6 w-6">
+                <MenuIcon className="absolute inset-0 transition-opacity group-data-[state=open]:opacity-0" />
+                <XIcon className="absolute inset-0 opacity-0 transition-opacity group-data-[state=open]:opacity-100" />
+              </div>
+              <span className="sr-only">{dictionary.menu}</span>
+            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuGroup>
@@ -89,7 +87,7 @@ export const Navigation = async ({ locale }: NavigationProps) => {
             </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
-      </div>
+      </Container>
     </nav>
   );
 };

@@ -24,11 +24,11 @@ export {
 } from "@radix-ui/react-dropdown-menu";
 
 const dropdownMenuContent = cva({
-  base: "z-popover flex min-w-32 flex-col gap-5 overflow-hidden rounded-lg bg-black px-9 py-4 shadow-inner shadow-neutral-900 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+  base: "z-popover flex min-w-32 flex-col gap-5 overflow-hidden rounded-lg bg-black px-9 py-4 shadow-inner shadow-gray-900 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
 });
 
 const dropdownMenuItem = cva({
-  base: "flex cursor-pointer select-none items-center text-neutral-400 outline-none transition hover:text-white focus-visible:text-white data-[disabled]:pointer-events-none data-[disabled]:cursor-default data-[disabled]:opacity-50",
+  base: "flex cursor-pointer select-none items-center text-gray-300 outline-none transition hover:text-white focus-visible:text-white data-[disabled]:pointer-events-none data-[disabled]:cursor-default data-[disabled]:opacity-50",
   defaultVariants: {
     stretch: false,
   },

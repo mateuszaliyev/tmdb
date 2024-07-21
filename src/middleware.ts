@@ -12,7 +12,7 @@ export const middleware = (request: NextRequest) => {
 
   if (pathnameHasLocale) return;
 
-  const locale = matchLocale(request);
+  const locale = matchLocale(Object.fromEntries(request.headers));
   request.nextUrl.pathname = `/${locale}${pathname}`;
 
   return NextResponse.redirect(request.nextUrl);

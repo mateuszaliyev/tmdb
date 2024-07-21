@@ -1,4 +1,19 @@
 {
+  "header": {
+    "input": {
+      "placeholder": "Przeszukaj tmdb"
+    },
+    "search": {
+      "results": {
+        "deck": "Filmy oraz seriale pasujące do frazy",
+        "heading": "Wyniki wyszukiwania"
+      }
+    }
+  },
+  "media": {
+    "movie": "Film",
+    "tv": "Serial"
+  },
   "menu": "Menu",
   "meta": {
     "title": "tmdb"
@@ -12,5 +27,9 @@
       "slug": "najlepsze-seriale",
       "title": "Najlepsze seriale"
     }
+  },
+  "slide": {
+    "next": "Następny slajd",
+    "previous": "Poprzedni slajd"
   }
 }

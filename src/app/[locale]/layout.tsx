@@ -16,6 +16,9 @@ type RootLayoutProps = {
   params: {
     locale: Locale;
   };
+  searchParams: {
+    query?: string;
+  };
 };
 
 export const generateMetadata = async ({
@@ -36,7 +39,7 @@ const figtree = Figtree({
 const RootLayout = ({ children, params: { locale } }: RootLayoutProps) => (
   <html
     className={cx(
-      "scroll-smooth bg-neutral-950 text-white [color-scheme:dark]",
+      "scroll-smooth bg-gray-950 text-white [color-scheme:dark]",
       figtree.variable,
     )}
     lang={locale}
