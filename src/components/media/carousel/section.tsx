@@ -1,4 +1,4 @@
-import { ReactNode, Suspense, type ComponentPropsWithRef } from "react";
+import type { ComponentPropsWithRef, ReactNode } from "react";
 
 import {
   CarouselNext,
@@ -6,7 +6,6 @@ import {
   CarouselProvider,
 } from "@/components/carousel";
 import { Container } from "@/components/container";
-import { MediaCardSkeleton } from "@/components/media/card";
 import { Deck, Heading } from "@/components/typography";
 
 import type { Locale } from "@/locales";
@@ -44,17 +43,7 @@ export const MediaCarouselSection = async ({
               <CarouselNext>{dictionary.slide.next}</CarouselNext>
             </div>
           </div>
-          <Suspense
-            fallback={
-              <div className="flex gap-4 overflow-hidden">
-                {Array.from({ length: 6 }, (_, index) => (
-                  <MediaCardSkeleton key={index} />
-                ))}
-              </div>
-            }
-          >
-            {children}
-          </Suspense>
+          {children}
         </CarouselProvider>
       </Container>
     </section>
