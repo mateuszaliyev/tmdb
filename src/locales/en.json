@@ -28,7 +28,9 @@
   },
   "menu": "Menu",
   "meta": {
-    "title": "tmdb"
+    "description": "tmdb is a search interface for movies and TV shows, with information, ratings and more.",
+    "keywords": ["Movies", "TV Shows", "User Ratings"],
+    "title": "tmdb - the movie database"
   },
   "slide": {
     "next": "Next slide",

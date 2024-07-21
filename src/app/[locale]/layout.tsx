@@ -1,10 +1,14 @@
 import type { ReactNode } from "react";
 
+import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 
-import type { Locale } from "@/locales";
+import { environment } from "@/environment.mjs";
+
+import { LOCALES, type Locale } from "@/locales";
 import { getDictionary } from "@/locales/dictionary";
 
 import { cx } from "@/utilities/classname";
@@ -20,11 +24,38 @@ type RootLayoutProps = {
 
 export const generateMetadata = async ({
   params: { locale },
-}: Pick<RootLayoutProps, "params">) => {
+}: Pick<RootLayoutProps, "params">): Promise<Metadata> => {
   const dictionary = await getDictionary(locale);
 
+  const description = dictionary.meta.description;
+
+  const languages = Object.fromEntries(
+    LOCALES.map((locale) => [locale, `/${locale}`]),
+  ) as Record<Locale, string>;
+
+  const title: Metadata["title"] = {
+    default: dictionary.meta.title,
+    template: "%s - tmdb",
+  };
+
   return {
-    title: dictionary.meta.title,
+    alternates: {
+      canonical: "/",
+      languages,
+    },
+    description,
+    keywords: dictionary.meta.keywords,
+    metadataBase: new URL(environment.NEXT_PUBLIC_BASE_URL),
+    openGraph: {
+      alternateLocale: LOCALES.filter((element) => element !== locale),
+      description,
+      locale,
+      siteName: "tmdb",
+      title,
+      type: "website",
+      url: "/",
+    },
+    title,
   };
 };
 
@@ -44,6 +75,7 @@ const RootLayout = ({ children, params: { locale } }: RootLayoutProps) => (
     <body className="antialiased">
       <Navigation locale={locale} />
       {children}
+      <Footer />
     </body>
   </html>
 );

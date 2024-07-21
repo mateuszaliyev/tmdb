@@ -28,7 +28,9 @@
   },
   "menu": "Menu",
   "meta": {
-    "title": "tmdb"
+    "description": "tmdb to wyszukiwarka filmów i programów telewizyjnych, zawierająca informacje, oceny i nie tylko.",
+    "keywords": ["Filmy", "Seriale", "Oceny użytkowników"],
+    "title": "tmdb - baza danych filmów"
   },
   "slide": {
     "next": "Następny slajd",
