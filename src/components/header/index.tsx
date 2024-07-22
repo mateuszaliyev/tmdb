@@ -69,18 +69,19 @@ export const Header = async ({ locale, query }: HeaderProps) => {
             <SearchIcon className="absolute right-4 top-1/2 h-6 w-6 -translate-y-1/2 text-gray-400" />
           </div>
         </form>
-        {typeof query !== "undefined" && (
-          <MediaCarouselSection
-            deck={`${dictionary.header.search.results.deck}: "${query}"`}
-            heading={dictionary.header.search.results.heading}
-            locale={locale}
-          >
-            <Suspense fallback={<MediaCarouselSkeleton />}>
-              <SearchResults locale={locale} query={query} />
-            </Suspense>
-          </MediaCarouselSection>
-        )}
       </Container>
+      {typeof query !== "undefined" && (
+        <MediaCarouselSection
+          className="relative"
+          deck={`${dictionary.header.search.results.deck}: "${query}"`}
+          heading={dictionary.header.search.results.heading}
+          locale={locale}
+        >
+          <Suspense fallback={<MediaCarouselSkeleton />}>
+            <SearchResults locale={locale} query={query} />
+          </Suspense>
+        </MediaCarouselSection>
+      )}
     </header>
   );
 };
