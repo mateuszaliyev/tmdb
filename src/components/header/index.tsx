@@ -29,7 +29,7 @@ const updateSearchParameters = async (locale: Locale, formData: FormData) => {
 
   if (!query || typeof query !== "string" || query.length < 3) return;
 
-  redirect(`/${locale}?query=${query}`);
+  redirect(`/${locale}?query=${encodeURIComponent(query)}`);
 };
 
 export const Header = async ({ locale, query }: HeaderProps) => {
