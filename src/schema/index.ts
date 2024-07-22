@@ -67,7 +67,7 @@ export const personSchema = z.object({
       seriesSchemaWithMediaType,
     ])
     .array(),
-  known_for_department: z.string(),
+  known_for_department: z.string().nullable(),
   name: z.string(),
   original_name: z.string(),
   popularity: z.number(),
